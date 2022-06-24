@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poll questions</title>
+</head>
+<body >
+    <div class="page">
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'style/home.css' %}">
+        {% block content %}  
+        <h1>Poll Questions</h1>
+        {% for Quest in Quests %}
+        <div class="border bg-muted p-3 mb-3">
+            <h4> {{Quest.question}} </h4>
+            <table>                
+                <tr>
+                    <td><button style="background-color:blue"><a href="{% url 'votenow' Quest.id %}"> <span style="color:white">Vote Now </span></a></button></td>
+                    <td><button><a href="{% url 'results' Quest.id %}">  <span style="color:white"> Results </span></a></button></td>
+                </tr>
+            </table>
+        </div>
+        {% endfor %}
+        {% endblock %} 
+
+    </div>
+</body>
+</html>

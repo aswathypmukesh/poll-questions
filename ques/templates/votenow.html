@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equive='X-UA-Compatible' content='IE=edge'>
+    <title>Vote Now</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body class="page">
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'style/home.css' %}">
+    <form action="" method="POST" class="form">
+        {% csrf_token %}
+        
+        <h3> {{form.question}} </h3>
+        <button style = "background-color:green"> Like </button>
+        <button style = "background-color:red">  Dislike </button>
+        {% comment %} <tr><button>Create</button></tr> {% endcomment %}
+                  
+    </form>
+</body>
+</html>
