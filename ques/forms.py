@@ -8,3 +8,8 @@ class QuestForm(forms.ModelForm):
         model = Quest
         fields = "__all__"
 
+class LoginForm(forms.ModelForm):
+
+    class Meta:
+        model = Login
+        fields = "__all__"

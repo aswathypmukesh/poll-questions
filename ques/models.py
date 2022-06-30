@@ -7,12 +7,6 @@ class Quest(models.Model):
     likes = models.PositiveIntegerField(default=0)
     dislikes = models.PositiveIntegerField(default=0)
     
-# class Vote(models.Model):
-#     likes = models.PositiveIntegerField(default=0)
-#     dislikes = models.PositiveIntegerField(default=0)
-    
-#     def get_total_likes(self):
-#         return self.likes.users.count()
-
-#     def get_total_dislikes(self):
-#         return self.dislikes.users.count()
+class Login(models.Model):
+    username = models.CharField(max_length=100)
+    password = models.CharField(max_length=10)
