@@ -4,10 +4,9 @@ from django.shortcuts import render, redirect
 from .models import *
 from .forms import *
 from django.http import HttpResponse
+from django.contrib.auth.decorators import login_required
 
-
-# Create your views here.
-
+@login_required(login_url='/')
 def home(request):
     if request.method == 'GET':
         Q = Quest.objects.all()
@@ -81,6 +80,11 @@ def results(request, pk):
     return render(request, 'results.html', c)
 
 def login(request):
+    # if request.user.is_authenticated:
+        
+    #     return HttpResponseRedirect(reverse("home"))
+    # else:
+    #     return render(request, "login.html")
     if request.method == 'POST':
         username = request.POST['username']
         password = request.POST['password']
@@ -97,3 +101,4 @@ def login(request):
 def logout(request):
     del request.session['u']
     return redirect('login')
+
